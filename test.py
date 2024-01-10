@@ -16,6 +16,14 @@ class Tests(unittest.TestCase):
             cols
         )
 
+    def test_maze_visits_and_resets(self):
+        cols = 8
+        rows = 10
+        m1 = Maze(rows=rows, columns=cols)
+        cells = m1.get_cells()
+        for i in range(rows):
+            for j in range(cols):
+                self.assertFalse(cells[i][j].get_visited())
 
 if __name__ == '__main__':
     unittest.main()

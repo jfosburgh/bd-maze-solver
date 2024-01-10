@@ -53,6 +53,7 @@ class Cell:
         self.__p4 = Point(p3.x, p1.y)
         self.__window = window
         self.__color = color
+        self.__visited = False
         self.left_wall, self.right_wall, self.top_wall, self.bottom_wall = True, True, True, True
 
     def draw(self):
@@ -61,6 +62,11 @@ class Cell:
         self.__window.draw_line(Line(self.__p3, self.__p4), self.__color if self.right_wall else 'white')
         self.__window.draw_line(Line(self.__p4, self.__p1), self.__color if self.top_wall else 'white')
 
+    def set_visited(self, val=True):
+        self.__visited = val
+
+    def get_visited(self):
+        return self.__visited
 
     def get_center(self):
         x = (self.__p4.x - self.__p1.x) / 2 + self.__p1.x
